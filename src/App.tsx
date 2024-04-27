@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { Canvas } from '@react-three/fiber'
 import { Box } from './components/Box'
-import { PointerLockControls } from '@react-three/drei'
+import { PointerLockControls, Stats } from '@react-three/drei'
 import { Physics } from '@react-three/cannon'
 import { Character } from './components/Character'
 import { Floor } from './components/Floor'
@@ -16,10 +16,11 @@ function App() {
       <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
       <Physics gravity={[0, -9.8, 0]}>
         <Character controls position={[0, 2, 0]} args={[0.5]} color="yellow" />
-        <Box position={[-1.2, 0, 0]} />
-        <Box position={[1.2, 0, 0]} />
+        <Box position={[-1.2, 0.5, 0]} />
+        <Box position={[1.2, 0.5, 0]} />
         <Floor rotation={[Math.PI / -2, 0, 0 ]} color="white"/>
       </Physics>
+      <Stats />
     </Canvas>
   );
 }
